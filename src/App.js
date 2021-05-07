@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 
 import LogInPage from "./components/pages/LogInPage";
+import Config from "./components/pages/Config";
 import Textos from "./components/pages/Textos";
 import Textos_EN from "./components/pages/Textos_en";
 import Productos from "./components/pages/Productos";
@@ -31,6 +32,7 @@ export default function App() {
         <main id="content" className="p-5">
         <Switch>
             <Route path="/admin" exact component={LogInPage} />
+            <Route path="/admin/config" exact component={Config} />
             <Route path="/admin/qrs" component={Qrs} />
             <Route path="/admin/textos" component={Textos} />
             <Route path="/admin/textos_en" component={Textos_EN} />

@@ -57,12 +57,12 @@ const TopNavigation = () => {
                         Imagenes
                     </MDBListGroupItem>
                 </NavLink>
-{/*                 <NavLink to="/qrs" activeClassName="activeClass">
+                <NavLink to="/admin/config" activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="link" className="mr-3"/>
-                        Códigos QRs
+                        Config
                     </MDBListGroupItem>
-                </NavLink> */}
+                </NavLink>
                 <NavLink exact to="/admin" onClick={cerrarSesionHander} activeClassName="activeClass">
                     <MDBListGroupItem>
                         <MDBIcon icon="sign-out-alt" className="mr-3"/>

@@ -121,6 +121,46 @@ const Productos = () => {
     }, 100);
   };
 
+  window.loadNewImage = (e) => {
+
+    let formData = new FormData();
+
+    formData.append("id", e.target.file[0]);
+    formData.append("imagen", e.target.file[0]);
+
+    Swal.fire({
+      title: "Actualizando imagen ...",
+      onBeforeOpen() {
+        Swal.showLoading();
+      },
+      onAfterClose() {
+        Swal.hideLoading();
+      },
+      allowOutsideClick: false,
+      allowEscapeKey: false,
+      allowEnterKey: false,
+      showConfirmButton: false,
+    });
+
+    fetch(process.env.REACT_APP_BASE_URL + "productos/actualizarImagenProducto.php", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .catch((error) => {
+        Swal.fire("Error!", error, "error");
+      })
+      .then(({ result, message }) => {
+        if (result) {
+          Swal.fire("Correcto!", message, "success");
+          window.location.reload();
+        } else {
+          Swal.fire("Error!", message, "error");
+        }
+      });
+
+  }
+
   return (
     <>
       <TextEditor setIsOpenModal={isOpenModal} editKeyt={editKeyt} />
