@@ -121,12 +121,14 @@ const Productos = () => {
     }, 100);
   };
 
-  window.loadNewImage = (e) => {
+  window.uploadNewImage = (e, id) => {
+
+    console.log(e)
 
     let formData = new FormData();
 
-    formData.append("id", e.target.file[0]);
-    formData.append("imagen", e.target.file[0]);
+    formData.append("id", id);
+    formData.append("imagen", e.target.files[0]);
 
     Swal.fire({
       title: "Actualizando imagen ...",

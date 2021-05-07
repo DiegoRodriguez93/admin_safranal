@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import $ from 'jquery';
 import 'datatables.net';
+import 'datatables.net-responsive';
 
 export default function DataTable({ url, thead, tableId, refreshID }) {
 
@@ -15,7 +16,8 @@ export default function DataTable({ url, thead, tableId, refreshID }) {
                 },
                 "language": {
                     "url": "//cdn.datatables.net/plug-ins/1.10.21/i18n/Spanish.json"
-                }
+                },
+                "responsive": true
             });
         } else {
             window.$table.ajax.reload();
@@ -26,7 +28,7 @@ export default function DataTable({ url, thead, tableId, refreshID }) {
         <>
             <table
                 id={tableId}
-                className="table dataTable no-footer"
+                className="table responsive no-footer"
                 style={{ width: "100%" }}
             >
                 <thead>
